@@ -35,6 +35,22 @@ block content
                 tbody
         // /USER LIST
 
+        // EDIT USER
+        h2 Edit User
+        #EditUser(name = 'editUser')
+            fieldset
+                input#editUserName(type='text', placeholder='Username', name='username')
+                input#editUserEmail(type='text', placeholder='Email')
+                br
+                input#editUserFullname(type='text', placeholder='Full Name')
+                input#editUserAge(type='text', placeholder='Age')
+                br
+                input#editUserLocation(type='text', placeholder='Location')
+                input#editUserGender(type='text', placeholder='gender')
+                br
+                button#btnEditUser Edit User
+        // /EDIT USER
+        br
         // ADD USER
         h2 Add User
         #addUser

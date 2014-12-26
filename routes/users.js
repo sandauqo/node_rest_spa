@@ -34,4 +34,18 @@ router.delete('/deleteuser/:id', function(req, res) {
     });
 });
 
+/*
+ * PUT to edituser.
+ */
+router.put('/edituser/:id', function(req, res) {
+    var db = req.db;
+    var userToEdit = req.params.id;
+
+    db.collection('userlist').update({_id: mongo.helper.toObjectID(userToEdit)}, {'$set':{username:"Test"}}, function(err, result) {
+        if (err) throw err;
+        if (result) console.log('Updated!');
+    });
+
+});
+
 module.exports = router;
