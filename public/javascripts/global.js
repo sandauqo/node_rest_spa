@@ -195,9 +195,10 @@ function editUser(event) {
             'age': $('#editUser fieldset input#editUserAge').val(),
             'location': $('#editUser fieldset input#editUserLocation').val(),
             'gender': $('#editUser fieldset input#editUserGender').val()
-        }
+        };
 
-        // Use AJAX to post the object to our adduser service
+        var self = this;
+        // Use AJAX to post the object to our edituser service
         $.ajax({
             type: 'PUT',
             data: updatedUser,
@@ -208,12 +209,15 @@ function editUser(event) {
             // Check for successful (blank) response
             if (response.msg === '') {
 
-                // Clear the form inputs
-                $('#addUser fieldset input').val('');
 
                 // Update the table
                 populateTable();
 
+                //Populate Info Box
+                $('#userInfoName').text(updatedUser.fullname);
+                $('#userInfoAge').text(updatedUser.age);
+                $('#userInfoGender').text(updatedUser.gender);
+                $('#userInfoLocation').text(updatedUser.location);
             }
             else {
 
